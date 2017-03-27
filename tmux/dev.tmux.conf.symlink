@@ -1,0 +1,12 @@
+#!/bin/sh
+tmux has-session -t dev
+if [ $? != 0 ]; then
+	tmux new-session -s dev -n ide -d
+	tmux split-window -t dev -v -p 30
+	tmux select-pane -t 1
+	tmux split-window -t dev -h -p 30
+	tmux new-window -n shell
+	tmux select-window -t dev:1
+	tmux select-pane -t 1
+fi
+tmux -2 attach-session -t dev

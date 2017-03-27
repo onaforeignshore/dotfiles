@@ -1,0 +1,135 @@
+#!/usr/bin/zsh
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/zsh
+export ZDOTDIR=$HOME/.config/zsh
+
+command_exists() {
+		type "$1" > /dev/null 2>&1
+}
+
+# Make vim/nvim the default editor
+export EDITOR=`which nvim`
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+
+# Prefer US English and use UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+[ -z "$TMUX" ] && export TERM="xterm-256color"
+
+export LESS_TERMCAP_md="$ORANGE" # Highlight section titles in manual pages
+export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
+export PYTHON=python2 # Make sure we use Python 2
+export COLORTERM="truecolor" # Enable truecolor for programs that support it
+#export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")' # for powerline
+
+# display how long all tasks over 10 seconds take
+export REPORTTIME=10
+
+# use modified terminfo before default ones
+[[ -e ~/.terminfo ]] && export TERMINFO_DIRS=~/.terminfo:/usr/share/terminfo
+
+# define the code directory
+# This is where my code exists and where I want the `c` autocomplete to work from exclusively
+if [[ -d ~/code ]]; then
+		export CODE_DIR=~/code
+fi
+
+# source all .zsh files inside of the zsh/ directory
+for config ($ZSH/**/*.zsh) source $config
+
+if [[ -a ~/.localrc ]]; then
+		source ~/.localrc
+fi
+
+# initialize autocomplete
+#zmodload zsh/complist
+autoload -Uz compinit add-zsh-hook
+compinit -u
+
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
+
+# install rbenv
+if command_exists rbenv; then
+		eval "$(rbenv init -)"
+fi
+
+# alias git to hub
+if command_exists hub; then
+		eval "$(hub alias -s)"
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+
+# Enable VI support for cursors
+bindkey -v
+
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+
+# allow ctrl-r to perform backward search in history
+bindkey '^r' history-incremental-search-backward
+
+# allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+function zle-keymap-select {
+	# change cursor shape in iTerm2
+	case $KEYMAP in
+		vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+		viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+	esac
+
+	powerlevel9k_prepare_prompts
+	zle reset-prompt
+	zle -R
+}
+
+function zle-line-init {
+	# change cursor shape in iTerm2
+	case $KEYMAP in
+		vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+		viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+	esac
+
+	powerlevel9k_prepare_prompts
+	if (( ${+terminfo[smkx]} )); then
+		printf '%s' ${terminfo[smkx]}
+	fi
+	zle reset-prompt
+	zle -R
+}
+
+function zle-line-finish {
+	print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+
+	powerlevel9k_prepare_prompts
+	if (( ${+terminfo[rmkx]} )); then
+		printf '%s' ${terminfo[rmkx]}
+	fi
+	zle reset-prompt
+	zle -R
+}
+
+zle -N zle-line-init
+zle -N ale-line-finish
+zle -N zle-keymap-select

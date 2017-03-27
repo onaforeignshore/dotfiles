@@ -1,0 +1,36 @@
+export PATH=/usr/local/bin:$PATH
+
+# add /usr/local/sbin
+if [[ -d /usr/local/sbin ]]; then
+    export PATH=/usr/local/sbin:$PATH
+fi
+
+# adding path directory for custom scripts
+export PATH=$DOTFILES/bin:$PATH
+
+# check for custom bin directory and add to path
+if [[ -d ~/bin ]]; then
+    export PATH=~/bin:$PATH
+fi
+
+# add Go Root path
+export GOROOT=/usr/local/opt/go/libexec
+if [[ -d ~/code ]]; then
+    export GOPATH=$HOME/code/go
+else
+    export GOPATH=$HOME/go
+fi
+export PATH=$PATH:$GOROOT:$GOPATH/bin
+
+# Add RVM to PATH for scripting
+if [[ -d ~/.rvm ]]; then
+    PATH=$HOME/.rvm/bin:$PATH
+    source ~/.rvm/scripts/rvm
+fi
+
+# homebrew configuration
+export PATH=$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homebrew/Library/Homebrew/shims/scm
+
+# coreutils override (with gnu version)
+#export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+#export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
