@@ -29,6 +29,14 @@ if [ "$(uname)" == "Darwin" ]; then
     ln -s ~/.dotfiles/nginx/code.dev /usr/local/etc/nginx/sites-enabled/code.dev
 fi
 
+# only perform Linux-specific install
+if [ "$(uname)" == "Linux" ]; then
+    echo -e "\n\nRunning on Linux"
+
+    # keyboard key swap for Linux on Mac - ` and §
+    ln -s ~/.dotfiles/linux/.Xmodmap ~/.Xmodmap
+fi
+
 echo "creating vim directories"
 mkdir -p ~/.vim-tmp
 

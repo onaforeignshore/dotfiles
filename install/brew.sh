@@ -24,7 +24,7 @@ formulas=(
     tmux
     tree
     wget
-    z
+    #z
     zsh
 )
 

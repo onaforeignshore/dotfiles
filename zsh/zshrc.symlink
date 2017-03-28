@@ -4,7 +4,7 @@ export ZSH=$DOTFILES/zsh
 export ZDOTDIR=$HOME/.config/zsh
 
 command_exists() {
-		type "$1" > /dev/null 2>&1
+	type "$1" > /dev/null 2>&1
 }
 
 # Make vim/nvim the default editor
@@ -32,14 +32,14 @@ export REPORTTIME=10
 # define the code directory
 # This is where my code exists and where I want the `c` autocomplete to work from exclusively
 if [[ -d ~/code ]]; then
-		export CODE_DIR=~/code
+	export CODE_DIR=~/code
 fi
 
 # source all .zsh files inside of the zsh/ directory
 for config ($ZSH/**/*.zsh) source $config
 
 if [[ -a ~/.localrc ]]; then
-		source ~/.localrc
+	source ~/.localrc
 fi
 
 # initialize autocomplete
@@ -52,12 +52,12 @@ export GIT_EDITOR='nvim'
 
 # install rbenv
 if command_exists rbenv; then
-		eval "$(rbenv init -)"
+	eval "$(rbenv init -)"
 fi
 
 # alias git to hub
 if command_exists hub; then
-		eval "$(hub alias -s)"
+	eval "$(hub alias -s)"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -98,10 +98,6 @@ function zle-keymap-select {
 		vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
 		viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
 	esac
-
-	powerlevel9k_prepare_prompts
-	zle reset-prompt
-	zle -R
 }
 
 function zle-line-init {
@@ -110,24 +106,10 @@ function zle-line-init {
 		vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
 		viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
 	esac
-
-	powerlevel9k_prepare_prompts
-	if (( ${+terminfo[smkx]} )); then
-		printf '%s' ${terminfo[smkx]}
-	fi
-	zle reset-prompt
-	zle -R
 }
 
 function zle-line-finish {
 	print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
-
-	powerlevel9k_prepare_prompts
-	if (( ${+terminfo[rmkx]} )); then
-		printf '%s' ${terminfo[rmkx]}
-	fi
-	zle reset-prompt
-	zle -R
 }
 
 zle -N zle-line-init

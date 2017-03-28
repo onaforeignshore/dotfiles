@@ -15,7 +15,7 @@ for file in $linkables ; do
     fi
 done
 
-echo -e "\n\ninstalling to ~/.config"
+echo -e "\n\nInstalling to ~/.config"
 echo "=============================="
 if [ ! -d $HOME/.config ]; then
     echo "Creating ~/.config"

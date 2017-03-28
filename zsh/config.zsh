@@ -2,7 +2,7 @@ CASE_SENSITIVE="true" # Set to this to use case-sensitive completion
 DISABLE_AUTO_UPDATE="true" # Comment this out to disable weekly auto-update checks
 # DISABLE_LS_COLORS="true" # Uncomment following line if you want to disable colors in ls
 # DISABLE_AUTO_TITLE="true" # Uncomment following line if you want to disable autosetting terminal title.
-# COMPLETION_WAITING_DOTS="true" # Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true" # Uncomment following line if you want red dots to be displayed while waiting for completion
 
 setopt auto_cd
 setopt auto_pushd
@@ -11,7 +11,7 @@ setopt chase_links
 setopt correct
 setopt interactivecomments
 setopt local_options
-setopt local_traps
+unsetopt local_traps
 setopt nullglob
 setopt prompt_subst
 setopt pushd_ignore_dups
@@ -45,7 +45,7 @@ setopt inc_append_history
 setopt share_history
 unsetopt hup
 
-setopt complete_aliases
+#setopt complete_aliases
 
 # make terminal command navigation sane again
 bindkey '^[^[[D' backward-word

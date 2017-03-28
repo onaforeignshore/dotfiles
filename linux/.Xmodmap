@@ -1,0 +1,2 @@
+keycode  49 = section plusminus VoidSymbol VoidSymbol section plusminus
+keycode  94 = grave asciitilde Arabic_tatweel VoidSymbol dead_grave dead_horn
