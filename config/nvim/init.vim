@@ -102,10 +102,6 @@ set wrapmargin=8            " wrap lines when coming within n characters from si
 set linebreak               " set soft wrapping
 set showbreak=…             " show ellipsis at breaking
 
-" subtly highlight the background in Insert mode
-au InsertEnter * hi Normal ctermbg=233 guibg=#111111
-au InsertLeave * hi Normal ctermbg=16 guibg=#000000
-
 hi CursorLine ctermbg=235 guibg=#222222
 
 " toggle invisible characters
@@ -615,3 +611,7 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
+
+augroup filetypedetect
+	au BufRead,BufNewFile [.]tmux.conf* set filetype=tmux
+augroup END

@@ -27,8 +27,8 @@ alias mkdir="mkdir -pv" # -p make intermediate -v show while creating
 
 # Helpers
 alias sudo="sudo " # allow aliases to be sudoed
-alias grep='GREP_COLOR="1;37;45" grep --color=auto'
 alias less="less --quiet"
+alias grep='GREP_COLOR="1;37;45" grep --color=auto'
 
 # System
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"

@@ -261,6 +261,7 @@ bind 0 select-window -t :10
 # ------------------------------------------------------------------------------
 # my personal settings
 
+setw -ga terminal-overrides ',*:Cc=\E[?120;%p1%s;240c:Cr=\E[?120;0;240c:civis=\E[?25l:cnorm=\E[?25h:cvvis=\E[?25h,'
 set-option -g default-shell $SHELL
 
 # override prefix settings

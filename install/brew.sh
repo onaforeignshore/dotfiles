@@ -21,6 +21,8 @@ formulas=(
     neovim/neovim/neovim
     nginx
     reattach-to-user-namespace
+    rg
+    rust
     tmux
     tree
     wget

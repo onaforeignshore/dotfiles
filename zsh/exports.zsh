@@ -1,3 +1,7 @@
+####################
+# Path set up
+####################
+
 export PATH=/usr/local/bin:$PATH
 
 # add /usr/local/sbin
@@ -34,3 +38,16 @@ export PATH=$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homeb
 # coreutils override (with gnu version)
 #export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 #export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
+####################
+# general exports
+####################
+
+export LC_COLLATE=C # CTAGS Sorting in VIM/Emacs is better behaved with this in place
+export LESS="--ignore-case --raw-control-chars"
+export LESS_TERMCAP_md="$PR_CYAN" # Highlight section titles in manual pages
+export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
+export PAGER="most"
+export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")' # for powerline
+export PYTHON=python2 # Make sure we use Python 2
+export REPORTTIME=10 # display how long all tasks over 10 seconds take

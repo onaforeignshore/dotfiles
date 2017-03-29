@@ -1,15 +1,9 @@
 # heavily inspired by the wonderful pure theme
 # https://github.com/sindresorhus/pure
 
-# needed to get things like current git branch
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
-zstyle ':vcs_info:git*' use-simple true
-zstyle ':vcs_info:git*' max-exports 2
-zstyle ':vcs_info:git*' formats ' %b' 'x%R'
-zstyle ':vcs_info:git*' actionformats ' %b|%a' 'x%R'
-
-autoload colors && colors
+setopt auto_menu
+setopt prompt_subst # Enable parameter expansion, command substitution, and arithmetic expansion in the prompt
+unsetopt menu_complete
 
 git_dirty() {
     # check if we're in a git repo
