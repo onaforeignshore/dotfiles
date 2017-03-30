@@ -11,6 +11,7 @@ if [ -z ${RELOAD} ]; then
     zplug 'zsh-users/zsh-autosuggestions'
     zplug 'akoenig/npm-run.plugin.zsh'
     zplug 'yonchu/grunt-zsh-completion'
+    zplug 'b4b4r07/zsh-vimode-visual', defer:3
 
     export NVM_LAZY_LOAD=true
     zplug "lukechilds/zsh-nvm"
