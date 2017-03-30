@@ -289,4 +289,3 @@ bind - split-window -v -c "#{pane_current_path}"
 
 # Clear activity flag on all windows
 bind Space run-shell "tmux-select-each '#S'"
-
