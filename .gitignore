@@ -12,5 +12,6 @@ config/nvim/backup
 config/nvim/.viminfo
 
 tmux/.tmux
+tmux/tmux.conf.symlink
 
 zsh/powerlevel9k.zsh
