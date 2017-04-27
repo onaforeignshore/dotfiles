@@ -203,5 +203,8 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
 #echo "0x08000100:0" > ~/.CFUserTextEncoding
 
+# Change default search path - see http://apple.stackexchange.com/questions/243322/set-path-variable-so-that-it-is-detected-in-all-applications-even-outside-termi
+sudo launchctl config user path /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done

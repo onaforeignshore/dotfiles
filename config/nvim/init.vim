@@ -69,7 +69,8 @@ if &term =~ '256color'
 endif
 
 " enable 24 bit color support if supported
-if (has('mac') && empty($TMUX) && has("termguicolors"))
+" if (has('mac') && empty($TMUX) && has("termguicolors"))
+if (has('mac') && has("termguicolors"))
 	set termguicolors
 endif
 

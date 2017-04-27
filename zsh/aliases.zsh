@@ -50,59 +50,57 @@ done
 #
 # MAC SPECIFIC ALIASES
 #
-if [[ $OS == "OSX" ]]; then
-	# Homebrew
-	alias update='brew update && brew upgrade --all && brew cask update && brew cleanup && brew cask cleanup'
+# Homebrew
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
-	# IP addresses
-	alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
-	alias myip2="curl http://ipecho.net/plain; echo"
-	alias localip="ipconfig getifaddr en0"
-	alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+# IP addresses
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip2="curl http://ipecho.net/plain; echo"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
-	# View HTTP traffic
-	alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-	alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-	# Trim new lines and copy to clipboard
-	alias trimcopy="tr -d '\n' | pbcopy"
+# Trim new lines and copy to clipboard
+alias trimcopy="tr -d '\n' | pbcopy"
 
-	# File/Dir size
-	alias fs="stat -f \"%z bytes\""
-	alias ds="du -s ./* | sort -n| cut -f 2-|xargs -i du -sh {}"
-	alias df='df -h' # disk free, in Gigabytes, not bytes
-	alias du='ncdu -h -c' # calculate disk usage for a folder
+# File/Dir size
+alias fs="stat -f \"%z bytes\""
+alias ds="du -s ./* | sort -n| cut -f 2-|xargs -i du -sh {}"
+alias df='df -h' # disk free, in Gigabytes, not bytes
+alias du='ncdu -h -c' # calculate disk usage for a folder
 
-	# Recursively delete `.DS_Store` files
-	alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
-	# Colorize go build output
-	alias go="colorgo"
+# Colorize go build output
+alias go="colorgo"
 
-	alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash" # Empty the Trash on all mounted volumes and the main HDD
-	alias flush="sudo dscacheutil -flushcache;killall -HUP mDNSResponder;say Flushed" # Flush Directory Service cache
-	alias fixTerminal="sudo rm -f /private/var/log/asl/*.asl" # Speed up Terminal if it is loading slow by clearing out ASL logs
-	alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder" # Clean up LaunchServices to remove duplicates in the “Open With” menu
-	alias ql="qlmanage -p 2>/dev/null" # Preview a file using QuickLook
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash" # Empty the Trash on all mounted volumes and the main HDD
+alias flush="sudo dscacheutil -flushcache;killall -HUP mDNSResponder;say Flushed" # Flush Directory Service cache
+alias fixTerminal="sudo rm -f /private/var/log/asl/*.asl" # Speed up Terminal if it is loading slow by clearing out ASL logs
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder" # Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias ql="qlmanage -p 2>/dev/null" # Preview a file using QuickLook
 
-	# Hide/show all desktop icons (useful when presenting)
-	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
-	# Show/hide hidden files in Finder
-	alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-	alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-	# Control volume
-	alias volmute="osascript -e 'set volume output muted true'"
-	alias volfull="osascript -e 'set volume 10'"
+# Control volume
+alias volmute="osascript -e 'set volume output muted true'"
+alias volfull="osascript -e 'set volume 10'"
 
-	# Kill all the tabs in Chrome to free up memory
-	# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-	alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
-	# Applications
-	alias ios='open -a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
-	alias chrome="/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
-	#alias canary="/Applications/Google\\ Chrome\\ Canary.app/Contents/MacOS/Google\\ Chrome\\ Canary"
-fi
+# Applications
+alias ios='open -a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
+alias chrome="/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+#alias canary="/Applications/Google\\ Chrome\\ Canary.app/Contents/MacOS/Google\\ Chrome\\ Canary"

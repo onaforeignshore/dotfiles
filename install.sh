@@ -37,6 +37,9 @@ if [ "$(uname)" == "Linux" ]; then
     ln -s ~/.dotfiles/linux/.Xmodmap ~/.Xmodmap
 fi
 
+echo "updating terminal information for TMUX"
+source install/fix-terminfo.sh
+
 echo "creating vim directories"
 mkdir -p ~/.vim-tmp
 

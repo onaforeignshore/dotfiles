@@ -44,3 +44,20 @@ fi
 if command_exists hub; then
 	eval "$(hub alias -s)"
 fi
+
+cdUndoKey() {
+  popd      > /dev/null
+  zle       .reset-prompt
+  echo
+}
+
+cdParentKey() {
+  pushd .. > /dev/null
+  zle      .reset-prompt
+  echo
+}
+
+zle -N                 cdParentKey
+zle -N                 cdUndoKey
+bindkey '^[[1;9A'      cdParentKey
+bindkey '^[[1;3D'      cdUndoKey
