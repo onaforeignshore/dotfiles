@@ -24,3 +24,7 @@ tscommand*.txt
 
 # npm things
 npm-debug.log
+
+# misc
+powerlevel9k.zsh
+zsh-async/*

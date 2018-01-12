@@ -8,7 +8,7 @@ command_exists() {
 }
 
 # Make nvim the default editor
-export EDITOR=`which nvim`
+export EDITOR=`which vim`
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR

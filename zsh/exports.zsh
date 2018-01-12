@@ -39,6 +39,9 @@ export PATH=$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homeb
 #export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 #export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
+# PIPENV settings
+PIPENV_DEFAULT_PYTHON_VERSION=3.6
+
 ####################
 # general exports
 ####################

@@ -18,7 +18,7 @@ formulas=(
     highlight
     hub
     markdown
-    neovim/neovim/neovim
+    neovim
     nginx
     reattach-to-user-namespace
     rg
@@ -28,6 +28,11 @@ formulas=(
     wget
     #z
     zsh
+    zsh-autosuggestions
+    zsh-history-substring-search
+    zsh-navigation-tools
+    zsh-syntax-highlighting
+    zshdb
 )
 
 for formula in "${formulas[@]}"; do

@@ -27,13 +27,6 @@ if [ -z ${RELOAD} ]; then
     zplug load
 fi
 
-
-if [[ -a /usr/local/Cellar/zsh-history-substring-search/1.0.1/zsh-history-substring-search.zsh ]]; then
-    source /usr/local/Cellar/zsh-history-substring-search/1.0.1/zsh-history-substring-search.zsh
-    bindkey "^[[A" history-substring-search-up
-    bindkey "^[[B" history-substring-search-down
-fi
-
 # ZSH Navigation Tool
 if [[ $OS == "OSX" ]]; then
     source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh

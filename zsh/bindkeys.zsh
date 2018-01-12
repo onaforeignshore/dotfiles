@@ -34,3 +34,9 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
+if [[ -a /usr/local/Cellar/zsh-history-substring-search/1.0.1/zsh-history-substring-search.zsh ]]; then
+    source /usr/local/Cellar/zsh-history-substring-search/1.0.1/zsh-history-substring-search.zsh
+    bindkey "^[[A" history-substring-search-up
+    bindkey "^[[B" history-substring-search-down
+fi
+

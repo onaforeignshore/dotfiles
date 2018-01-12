@@ -13,6 +13,7 @@ setopt interactive_comments # Allow comments even in interactive shells (especia
 setopt local_options
 unsetopt local_traps
 setopt nullglob
+setopt prompt_subst
 setopt pushd_ignore_dups
 setopt pushd_silent
 setopt pushd_to_home

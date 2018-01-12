@@ -47,7 +47,7 @@ if has("persistent_undo")
 endif
 
 let &viminfo=&viminfo . ",n" . s:vimdir . "/.viminfo" " viminfo location
-let g:python_host_prog = '/usr/local/bin/python'
+let g:python2_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 if (has('nvim'))
@@ -61,7 +61,7 @@ endif
 " Section User Interface {{{
 
 " switch cursor to line when in insert mode, and block when not
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
 
 if &term =~ '256color'
 	" disable background color erase
