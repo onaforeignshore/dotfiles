@@ -41,9 +41,9 @@ if command_exists rbenv; then
 fi
 
 # alias git to hub
-if command_exists hub; then
-	eval "$(hub alias -s)"
-fi
+#if command_exists hub; then
+#	eval "$(hub alias -s)"
+#fi
 
 cdUndoKey() {
   popd      > /dev/null
