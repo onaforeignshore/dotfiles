@@ -5,7 +5,7 @@ module.exports = {
     fontSize: 13,
 
     // font family with optional fallbacks
-    fontFamily: '"Sauce Code Pro Nerd Font Complete", "Source Code Pro", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Source Code Pro Nerd Font Complete", "Source Code Pro", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
     // fontFamily: '',
 
     // terminal cursor background color (hex)

@@ -40,7 +40,7 @@ export PATH=$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homeb
 #export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # Add brew python to path
-export PATH=/usr/local/opt/python/libexec/bin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:/usr/local/opt/python@2/libexec/bin:$PATH
 
 ####################
 # general exports

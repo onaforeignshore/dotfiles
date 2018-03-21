@@ -4,8 +4,6 @@
     email = onaforeignshore@hotmail.co.uk
 [github]
     user = onaforeignshore
-[init]
-    templatedir = ~/.dotfiles/git/templates
 [alias]
     # list all aliases
     la = "!git config -l | grep alias | cut -c 7-"
@@ -159,7 +157,7 @@
     show = "diff-so-fancy | less --tabs=4 -RFX"
 #[difftool "sourcetree"]
 #	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-#	path = 
+#	path =
 #[mergetool "sourcetree"]
 #	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 #	trustExitCode = true
