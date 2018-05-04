@@ -54,3 +54,5 @@ export PAGER="most"
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")' # for powerline
 export PYTHON=python2 # Make sure we use Python 2
 export REPORTTIME=10 # display how long all tasks over 10 seconds take
+
+export GTK_THEME=Adwaita:dark # set dark theme for Meld merge
