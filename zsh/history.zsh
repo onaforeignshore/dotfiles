@@ -2,6 +2,7 @@
 HISTFILE=$ZDOTDIR/.zsh_history
 HISTORY=10000
 SAVEHIST=10000
+HISTSIZE=10000
 setopt append_history # Allow multiple terminal sessions to all append to one zsh command history
 setopt extended_history # Include more information about when the command was executed, etc
 setopt hist_expire_dups_first

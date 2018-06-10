@@ -36,8 +36,8 @@ fi
 export PATH=$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homebrew/Library/Homebrew/shims/scm
 
 # coreutils override (with gnu version)
-#export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-#export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # Add brew python to path
 export PATH=/usr/local/opt/python/libexec/bin:/usr/local/opt/python@2/libexec/bin:$PATH
