@@ -8,9 +8,9 @@ if [ -z ${RELOAD} ]; then
 
     zplug 'zplug/zplug', hook-build:'zplug --self-manage'
     zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-    zplug 'zsh-users/zsh-autosuggestions'
-    zplug 'akoenig/npm-run.plugin.zsh'
-    zplug 'yonchu/grunt-zsh-completion'
+    zplug 'zsh-users/zsh-autosuggestions', defer:1
+    zplug 'akoenig/npm-run.plugin.zsh', defer:1
+    zplug 'yonchu/grunt-zsh-completion', defer:2
     zplug 'b4b4r07/zsh-vimode-visual', defer:3
 
     export NVM_LAZY_LOAD=true

@@ -13,7 +13,6 @@ formulas=(
     ack
     diff-so-fancy
     dnsmasq
-    fzf
     git
     highlight
     hub
@@ -28,10 +27,8 @@ formulas=(
     wget
     #z
     zsh
-    zsh-autosuggestions
-    zsh-history-substring-search
-    zsh-navigation-tools
-    zsh-syntax-highlighting
+    #zsh-history-substring-search
+    #zsh-navigation-tools
     zshdb
 )
 

@@ -51,9 +51,14 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
     chsh -s $(which zsh)
 fi
 
-if ! command_exists zplug; then
-    echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
-    git clone https://github.com/zplug/zplug ~/.zplug
+# if ! command_exists zplug; then
+#     echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
+#     git clone https://github.com/zplug/zplug ~/.zplug
+# fi
+
+if ! command_exists zplugin; then
+    echo "installing zplugin, Elastic Zsh plugin manager with clean fpath, reports, completion management, turbo mode, services - https://github.com/zdharma/zplugin"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
 
 echo "Done. Reload your terminal."

@@ -1,5 +1,5 @@
 # initialize autocomplete
-autoload -Uz compinit add-zsh-hook && compinit -u
+autoload -Uz compinit add-zsh-hook
 zmodload zsh/complist
 
 # needed to get things like current git branch
@@ -17,7 +17,7 @@ zstyle ':completion:*' insert-tab pending
 
 # default to file completion
 zstyle ':completion:*' completer _expand _complete _files _correct _approximate
- 
+
 zstyle ':completion:*' list-colors '' # Fallback to built in ls colors
 zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s' # Make the list prompt friendly
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # match uppercase from lowercase
@@ -48,7 +48,7 @@ zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
- 
+
 # ignore completion functions (until the _ignored completer)
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain hosts-host hosts-ipaddr
@@ -66,12 +66,11 @@ zstyle ':filter-select' rotate-list yes # enable rotation for filter-select
 zstyle ':filter-select:highlight' matched fg=yellow,standout
 
 # man zshcontrib
-zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:*' enable git #cvs hg svn
-zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
-zstyle ':vcs_info:git*' actionformats ' %b|%a' 'x%R'
-zstyle ':vcs_info:git*' formats ' %b' 'x%R'
-zstyle ':vcs_info:git*' max-exports 2
-zstyle ':vcs_info:git*' use-simple true
-
+# zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+# zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+# zstyle ':vcs_info:*' enable git #cvs hg svn
+# zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
+# zstyle ':vcs_info:git*' actionformats ' %b|%a' 'x%R'
+# zstyle ':vcs_info:git*' formats ' %b' 'x%R'
+# zstyle ':vcs_info:git*' max-exports 2
+# zstyle ':vcs_info:git*' use-simple true

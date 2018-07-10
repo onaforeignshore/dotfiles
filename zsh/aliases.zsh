@@ -18,7 +18,7 @@ alias .....="cd ../../../.."
 
 alias ls="ls ${colorflag}" # include color
 alias l="ls -lah ${colorflag}" # -l long -a show symlinks file -h use unit suffixes
-alias la="ls -AF ${colorflag}" # -A all entries -F directory/ executable* symlink@ socket= whiteout% FIFO| 
+alias la="ls -AF ${colorflag}" # -A all entries -F directory/ executable* symlink@ socket= whiteout% FIFO|
 alias ll="ls -lFh ${colorflag}"
 alias lld="ls -l | grep ^d" #
 alias rmf="rm -rf"
@@ -105,6 +105,3 @@ alias ios='open -a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSi
 alias chrome="/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 #alias canary="/Applications/Google\\ Chrome\\ Canary.app/Contents/MacOS/Google\\ Chrome\\ Canary"
 alias top='glances'
-
-# Dropbox cli
-alias dropbox-cli='~/bin/dropbox.py'

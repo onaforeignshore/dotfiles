@@ -1,10 +1,6 @@
 # Enable VI support for cursors
 bindkey -v
 
-# allow v to edit the command line (standard behaviour)
-autoload -Uz edit-command-line
-bindkey -M vicmd 'v' edit-command-line
-
 # allow ctrl-p, ctrl-n for navigate history (standard behaviour)
 bindkey '^P' up-history
 bindkey '^N' down-history
@@ -18,9 +14,7 @@ bindkey '^w' backward-kill-word
 bindkey '^k' kill-whole-line
 
 # allow ctrl-r to perform backward search in history
-bindkey '^r' history-incremental-search-backward
-
-bindkey '^z' zaw-history
+#bindkey '^r' history-incremental-search-backward
 
 # allow ctrl-a and ctrl-e to move to beginning/end of line
 bindkey '^a' beginning-of-line
@@ -39,4 +33,3 @@ if [[ -a /usr/local/Cellar/zsh-history-substring-search/1.0.1/zsh-history-substr
     bindkey "^[[A" history-substring-search-up
     bindkey "^[[B" history-substring-search-down
 fi
-

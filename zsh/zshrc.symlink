@@ -1,4 +1,8 @@
 #!/usr/bin/zsh
+
+# Uncomment the line below to do profiling
+zmodload zsh/zprof
+
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 export ZDOTDIR=$HOME/.config/zsh
@@ -37,13 +41,15 @@ fi
 
 # install rbenv
 if command_exists rbenv; then
-	eval "$(rbenv init -)"
+	eval "$(command rbenv init -)"
+  rbenv "@"
 fi
 
-# alias git to hub
-#if command_exists hub; then
-#	eval "$(hub alias -s)"
-#fi
+# install pyenv
+if command_exists pyenv; then
+	eval "$(command pyenv init -)"
+  pyenv "@"
+fi
 
 cdUndoKey() {
   popd      > /dev/null
@@ -61,3 +67,7 @@ zle -N                 cdParentKey
 zle -N                 cdUndoKey
 bindkey '^[[1;9A'      cdParentKey
 bindkey '^[[1;3D'      cdUndoKey
+
+compinit -u
+
+# This lines stops zplugin from adding its loading to this file as it is handled in zplugin.zsh
