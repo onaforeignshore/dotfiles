@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+function convert() {
+  echo "Converting $1 to $2"
+  sh2md $1 >! $2
+}
+
+local currentDir=$PWD
+
+echo "Converting zsh files...\n"
+convert "$currentDir/powerlevel9k.zsh-theme" "$currentDir/api/powerlevel9k.md"
+
+for f in functions/*.zsh; do
+  convert "$currentDir/$f" "$currentDir/api/${f//zsh/}md"
+done
+
+echo "\nConverting p9k files...\n"
+for f in **/*.p9k; do
+  convert "$currentDir/$f" "$currentDir/api/${f//p9k/}md"
+done

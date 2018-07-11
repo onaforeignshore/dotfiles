@@ -15,6 +15,9 @@ for file in $linkables ; do
     fi
 done
 
+echo "Creating symlink for ~/bin folder"
+ln -s $DOTFILES/bin $HOME/bin
+
 echo -e "\n\nInstalling to ~/.config"
 echo "=============================="
 if [ ! -d $HOME/.config ]; then
