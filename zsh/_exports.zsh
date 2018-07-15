@@ -42,6 +42,9 @@ export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 # Add brew python to path
 export PATH=/usr/local/opt/python/libexec/bin:/usr/local/opt/python@2/libexec/bin:$PATH
 
+# Add composer to the path (https://getcomposer.org/doc/00-intro.md)
+export PATH=$PATH:$HOME/.composer/vendor/bin
+
 ####################
 # general exports
 ####################
