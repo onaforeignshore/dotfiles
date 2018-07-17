@@ -10,6 +10,7 @@ config/nvim/autoload/plug.vim
 
 config/nvim/backup
 config/nvim/.viminfo
+config/nvim/.viminfo.tmp*
 
 tmux/tmux.conf.symlink
 
