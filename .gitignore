@@ -13,5 +13,6 @@ config/nvim/.viminfo
 config/nvim/.viminfo.tmp*
 
 tmux/tmux.conf.symlink
+tmux/.tmux/*
 
-zsh/powerlevel9k.zsh
+#zsh/powerlevel9k.zsh
