@@ -78,6 +78,10 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Colorize go build output
 alias go="colorgo"
 
+# Use colored output for todo.sh
+alias todo="todo.sh -c"
+
+# Miscellaneous macOS aliases
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash" # Empty the Trash on all mounted volumes and the main HDD
 alias flush="sudo dscacheutil -flushcache;killall -HUP mDNSResponder;say Flushed" # Flush Directory Service cache
 alias fixTerminal="sudo rm -f /private/var/log/asl/*.asl" # Speed up Terminal if it is loading slow by clearing out ASL logs

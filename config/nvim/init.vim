@@ -46,7 +46,7 @@ if has("persistent_undo")
 	set undofile  " enable persistent undo
 endif
 
-let &viminfo=&viminfo . ",n" . s:vimdir . "/.viminfo" " viminfo location
+" let &viminfo=&viminfo . ",n" . s:vimdir . "/.viminfo" " viminfo location
 let g:python2_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
@@ -83,9 +83,13 @@ syntax on
 
 " override italic codes
 "if &term =~ 'xterm'
-""	set t_ZH=[3m
-""	set t_ZR=[23m
+"	set t_ZH=[3m
+"	set t_ZR=[23m
 "endif
+if &term =~ 'screen'
+	set t_ZH=[3m
+	set t_ZR=[23m
+endif
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -108,7 +112,7 @@ hi CursorLine ctermbg=235 guibg=#222222
 " toggle invisible characters
 set list
 set listchars=tab:→\ ,eol:¬,space:⋅,trail:·,extends:❯,precedes:❮,nbsp:·
-set showbreak=↪\ 
+set showbreak=↪\
 
 " highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -529,9 +533,24 @@ let g:neomake_typescript_tsc_maker = {
 
 " airline options
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ' '
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = '·' "'Ξ'
+
 "let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 "let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)

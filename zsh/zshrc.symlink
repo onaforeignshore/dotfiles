@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 # Uncomment the line below to do profiling
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh

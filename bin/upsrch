@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+setopt extended_glob
+
+local -a results; results=( ${(f)"$( print -rl (../)#$1(:a:h) )"} )
+echo "Found ${#results} result(s)"
+for i in "${results[@]}"; do
+  echo $i
+done
