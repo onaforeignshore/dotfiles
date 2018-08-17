@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Given an array of decimal numbers print all unicode codepoint.
 function print-decimal-unicode-range() {
@@ -17,10 +17,10 @@ function print-decimal-unicode-range() {
   local reset_color='\033[0m'
   local allChars=""
   local allCodes=""
-  local wrapAt=5
-  local topLine="${bgColorBorder}╔══════╦══════╦══════╦══════╦══════╗${reset_color}"
-  local bottomLine="${bgColorBorder}╚══════╩══════╩══════╩══════╩══════╝${reset_color}"
-  local line="${bgColorBorder}╠══════╬══════╬══════╬══════╬══════╣${reset_color}"
+  local wrapAt=20
+  local topLine="${bgColorBorder}╔══════╦══════╦══════╦══════╦══════╦══════╦══════╦══════╦══════╦═══════╦══════╦══════╦══════╦══════╦══════╦══════╦══════╦══════╦═══════╦══════╗${reset_color}"
+  local bottomLine="${bgColorBorder}╚══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╩══════╝${reset_color}"
+  local line="${bgColorBorder}╠══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╬══════╣${reset_color}"
   local bar="${bgColorBorder}║${reset_color}"
   local originalSequenceLength=${#originalSequence[@]}
   local leftoverSpaces=$((wrapAt - (originalSequenceLength % wrapAt)))
@@ -150,4 +150,3 @@ function test-fonts() {
 }
 
 test-fonts
-

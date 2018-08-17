@@ -16,7 +16,12 @@ for file in $linkables ; do
 done
 
 echo "Creating symlink for ~/bin folder"
+echo "=============================="
 ln -s $DOTFILES/bin $HOME/bin
+
+echo "Creating symlink for ~/.tmux folder"
+echo "=============================="
+ln -s $DOTFILES/tmux $HOME/.tmux
 
 echo -e "\n\nInstalling to ~/.config"
 echo "=============================="

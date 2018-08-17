@@ -130,7 +130,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 
 # echo "Enable snap-to-grid for desktop icons"
-# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # echo "Disable the warning before emptying the Trash"
 # defaults write com.apple.finder WarnOnEmptyTrash -bool false

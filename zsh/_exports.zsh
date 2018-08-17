@@ -45,6 +45,8 @@ export PATH=/usr/local/opt/python/libexec/bin:/usr/local/opt/python@2/libexec/bi
 # Add composer to the path (https://getcomposer.org/doc/00-intro.md)
 export PATH=$PATH:$HOME/.composer/vendor/bin
 
+export XDG_CACHE_HOME="$HOME/.config"
+
 ####################
 # general exports
 ####################

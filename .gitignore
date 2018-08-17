@@ -14,3 +14,4 @@ config/nvim/.viminfo.tmp*
 
 tmux/tmux.conf.symlink
 tmux/.tmux/*
+tmux/resurrect

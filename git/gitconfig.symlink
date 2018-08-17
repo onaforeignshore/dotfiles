@@ -121,7 +121,7 @@
     default = current
 [branch]
     # set up 'git pull' to rebase instead of merge
-    autosetuprebase = always
+    # autosetuprebase = always
 [diff]
     renames = copies
     mnemonicprefix = true
@@ -165,7 +165,7 @@
 	recentrepo = /Users/chris/code/powerlevel9k
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
