@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 # Uncomment the line below to do profiling
 # zmodload zsh/zprof
