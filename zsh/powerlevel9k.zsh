@@ -244,58 +244,61 @@ POWERLEVEL9K_COLOR_SCHEME="dark"                                     # "light" o
 # multiline prompt
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true                                 # double line prompt
 #POWERLEVEL9K_RPROMPT_ON_NEWLINE=true                                # place the right prompt on second line
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%F{9}%} ❯ %{%F{default}%} "
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON=$'\u256D'
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%{%F{9}%} ❯ %{%F{default}%} "
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX_ICON=$'\u2570\uF460 '
+
+P9K_NEW_PREFIX=$'\u2502'
 
 #POWERLEVEL9K_PROMPT_ADD_NEWLINE=true                                # new line before prompt
 #POWERLEVEL9K_DISABLE_RPROMPT=true                                   # disable the right prompt
 
 # segment/sub segment separators
 # uncomment a set of separators below
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B0'                       # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B2'                      # 
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0B1'                    # 
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0B3'                   # 
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0B0'                       # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON='\uE0B2'                      # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON='\uE0B1'                    # 
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON='\uE0B3'                   # 
 
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'                         # 
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B6'                        # 
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0B5'                      # 
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0B7'                     # 
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0B4'                         # 
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON='\uE0B6'                        # 
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON='\uE0B5'                      # 
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON='\uE0B7'                     # 
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B8 '                      # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0BA'                     #  
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0B9 '                   # 
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=' \uE0BB'                  #  
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0B8 '                      # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=' \uE0BA'                     # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON='\uE0B9 '                   # 
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=' \uE0BB'                  # 
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0BC '                      # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0BE'                     #  
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0BD '                   # 
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=' \uE0BF'                  #  
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0BC '                      # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=' \uE0BE'                     # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON='\uE0BD '                   # 
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=' \uE0BF'                  # 
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C0 '                      # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0C2'                     #  
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C1 '                   # 
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=' \uE0C3'                  #  
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0C0 '                      # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=' \uE0C2'                     # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON='\uE0C1 '                   # 
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=' \uE0C3'                  # 
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C4 '                      # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0C5'                     #  
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0C4 '                      # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=' \uE0C5'                     # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON=''
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=''
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C6'                       # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0C7'                      #  
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0C6'                       # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON='\uE0C7'                      # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON=''
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=''
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C8 '                      # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0CA'                     # 
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0C8 '                      # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=' \uE0CA'                     # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON=''
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=''
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0D2 '                      # 
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0D4'                     # 
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='\uE0D2 '                      # 
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=' \uE0D4'                     # 
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON=''
+# POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON=''
 
 # Uncomment this line to use fancy edge separators
 POWERLEVEL9K_FANCY_EDGE=true
@@ -323,13 +326,16 @@ POWERLEVEL9K_CURSOR_SHAPE_DEFAULT="hbar"
 
 # *****  background_jobs  *****
 # This allows you to get more details - running jobs + suspended jobs
-#POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
+POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
+
+# This enables expanded mode
+POWERLEVEL9K_BACKGROUND_JOBS_EXPANDED=true
 
 # Uncomment this line to always show the jobs count (even if it's zero).
-#POWERLEVEL9K_BACKGROUND_JOBS_ALWAYS_SHOW=true
+#POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE_ALWAYS=true
 
-#POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND=""
-#POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=""
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="236"
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="250"
 POWERLEVEL9K_BACKGROUND_JOBS_ICON="\uF013 "                          # F013 
 POWERLEVEL9K_BACKGROUND_JOBS_ICON_COLOR="255"
 #POWERLEVEL9K_BACKGROUND_JOBS_BOLD=true
@@ -380,16 +386,16 @@ POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(  88  94 100 106  70  34  28  22) # subdu
 # Uncomment only one of the following, or create your own
 
 POWERLEVEL9K_BATTERY_STAGES="" #  \uF244  \uF243  \uF242  \uF241  \uF240
-#POWERLEVEL9K_BATTERY_STAGES=("\uF244 " "\uF243 " "\uF242 " "\uF241 " "\uF240 ")
+#POWERLEVEL9K_BATTERY_STAGES=( $'\uF244' $'\uF243' $'\uF242' $'\uF241' $'\uF240' )
 
 #POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
-#POWERLEVEL9K_BATTERY_STAGES=("\u2581 " "\u2582 " "\u2583 " "\u2584 " "\u2585 " "\u2586 " "\u2587 " "\u2588 ")
+#POWERLEVEL9K_BATTERY_STAGES=( $'\u2581' $'\u2582' $'\u2583' $'\u2584' $'\u2585' $'\u2586' $'\u2587' $'\u2588' )
 
 #POWERLEVEL9K_BATTERY_STAGES="▏▎▍▌▋▊▉█"
-#POWERLEVEL9K_BATTERY_STAGES=("\u258F " "\u258E " "\u258D " "\u258C " "\u258B " "\u258A " "\u2589 " "\u2588 ")
+#POWERLEVEL9K_BATTERY_STAGES=( $'\u258F' $'\u258E' $'\u258D' $'\u258C' $'\u258B' $'\u258A' $'\u2589' $'\u2588 $' )
 
 # Uncomment this line if you want to use this indicator
-# POWERLEVEL9K_BATTERY_STAGES=( "▏    ▏" "▎    ▏" "▍    ▏" "▌    ▏" "▋    ▏" "▊    ▏" "▉    ▏" "█    ▏" "█▏   ▏" "█▎   ▏" "█▍   ▏" "█▌   ▏" "█▋   ▏" "█▊   ▏" "█▉   ▏" "██   ▏" "██   ▏" "██▎  ▏" "██▍  ▏" "██▌  ▏" "██▋  ▏" "██▊  ▏" "██▉  ▏" "███  ▏" "███  ▏" "███▎ ▏" "███▍ ▏" "███▌ ▏" "███▋ ▏" "███▊ ▏" "███▉ ▏" "████ ▏" "████ ▏" "████▎▏" "████▍▏" "████▌▏" "████▋▏" "████▊▏" "████▉▏" "█████▏" )
+#POWERLEVEL9K_BATTERY_STAGES=( "▏    ▏" "▎    ▏" "▍    ▏" "▌    ▏" "▋    ▏" "▊    ▏" "▉    ▏" "█    ▏" "█▏   ▏" "█▎   ▏" "█▍   ▏" "█▌   ▏" "█▋   ▏" "█▊   ▏" "█▉   ▏" "██   ▏" "██   ▏" "██▎  ▏" "██▍  ▏" "██▌  ▏" "██▋  ▏" "██▊  ▏" "██▉  ▏" "███  ▏" "███  ▏" "███▎ ▏" "███▍ ▏" "███▌ ▏" "███▋ ▏" "███▊ ▏" "███▉ ▏" "████ ▏" "████ ▏" "████▎▏" "████▍▏" "████▌▏" "████▋▏" "████▊▏" "████▉▏" "█████▏" )
 
 # *****  context  *****
 # The context segment (user@host string) is conditional. By default, it will only print if you are not your "normal"
@@ -473,7 +479,7 @@ POWERLEVEL9K_DIR_SHORTEN_LENGTH=2                                    # If your s
 #                                    this currently looks for .git directory to determine the root of the project.
 #
 
-POWERLEVEL9K_DIR_SHORTEN_STRATEGY="truncate_to_unique"               # How the directory strings should be truncated. See the table above for more information.
+POWERLEVEL9K_DIR_SHORTEN_STRATEGY="truncate_from_left"               # How the directory strings should be truncated. See the table above for more information.
 #POWERLEVEL9K_DIR_SHORTEN_DELIMITER=".."                             # Delimiter to use in truncated strings. This can be any string you choose, including an empty string if you wish to have no delimiter.
 #POWERLEVEL9K_DIR_SHORTEN_FOLDER_MARKER='.shorten_folder_marker'     # Filename to use to indicate where to shorten the path when using "truncate_with_folder_marker".
 #POWERLEVEL9K_DIR_SHORTEN_DELIMITER="\u2026"                         # …
@@ -874,7 +880,7 @@ POWERLEVEL9K_VCS_CLEAN_BACKGROUND='28'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='250'
 POWERLEVEL9K_VCS_CLEAN_ICON_COLOR="255"
 
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='208'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='130'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='250'
 POWERLEVEL9K_VCS_UNTRACKED_ICON_COLOR="255"
 
@@ -1169,11 +1175,12 @@ POWERLEVEL9K_KUBECONTEXT_ICON="\u2388"                               # 2388 ⎈
 #}
 #POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
 
-POWERLEVEL9K_NEW_BACKGROUND="54"
+#POWERLEVEL9K_NEW_BACKGROUND="54"
 #POWERLEVEL9K_NEW_FOREGROUND=""
-POWERLEVEL9K_NEW_ICON="\uF422"                                       # F422 
+#POWERLEVEL9K_NEW_ICON="\uF422"                                       # F422 
 #POWERLEVEL9K_NEW_ICON_COLOR=""
 
+#P9K_CUSTOM_SEGMENT_LOCATION="~/.config/powerlevel9k/segments"
 P9K_IGNORE_VAR_WARNING=true
 
 #=======================================
@@ -1205,9 +1212,10 @@ if [[ "${TERM}" =~ "tmux" || "${TERM}" =~ "screen" ]]; then
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs rbenv pyenv history tw)
 else
   # Segment list for left prompt
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon host user dir background_jobs command_execution_time vi_mode)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon host user dir background_jobs command_execution_time vcs vi_mode)
   # Segment list for right prompt
-  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs rbenv pyenv history tw date time battery)
+  #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs rbenv pyenv history tw battery)
+  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv pyenv history date time battery)
 fi
 
 #=======================================

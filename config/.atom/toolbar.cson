@@ -1,0 +1,302 @@
+# This file is used by Atom Toolbar Preferred to create buttons on your Tool Bar.
+# For more information how to use this package and create your own buttons,
+#   read the documentation on https://atom.io/packages/atom-toolbar-preferred
+[
+  {
+    type: 'button'
+    tooltip: 'Open File'
+    callback: 'application:open-file'
+    icon: 'file-text'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Open Folder'
+    dependency: 'atom-commander'
+    callback: 'atom-commander:toggle-visible'
+    icon: 'folder-open'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Save File'
+    callback: 'core:save'
+    icon: 'archive'
+    iconset: 'ion'
+  },
+  {
+    type: 'button'
+    tooltip: 'List projects'
+    dependency: 'project-manager'
+    callback: 'project-manager:list-projects'
+    icon: 'file-submodule'
+  },
+  {
+    type: 'spacer'
+  },
+  {
+    type: 'button'
+    tooltip: 'Markdown Preview'
+    dependency: 'markdown-preview'
+    callback: 'markdown-preview:toggle'
+    show: 'markdown'
+    icon: 'social-markdown'
+    iconset: 'ion'
+  },
+  {
+    type: 'button'
+    tooltip: 'HTML Preview'
+    dependency: 'atom-html-preview'
+    callback: 'atom-html-preview:toggle'
+    show: 'html'
+    icon: 'html5'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Find in Buffer'
+    callback: 'find-and-replace:toggle'
+    icon: 'search'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Project: To-Do List'
+    callback: 'todo-show:find-in-open-files'
+    icon: 'list-ul'
+    iconset: 'fa'
+  },
+  {
+    type: 'spacer'
+  },
+  {
+    type: 'button'
+    tooltip: 'Git Plus'
+    dependency: 'git-plus'
+    callback: 'git-plus:menu'
+    icon: 'git-plain'
+    iconset: 'devicon'
+  },
+  {
+    type: 'button'
+    tooltip: 'Git Projects'
+    dependency: 'git-projects'
+    callback: 'git-projects:toggle'
+    icon: 'git'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Toggle Blame'
+    dependency: 'blame'
+    callback: 'blame:toggle'
+    icon: 'sourcetree-plain'
+    iconset: 'devicon'
+  },
+  {
+    type: 'button'
+    tooltip: 'Git Diff Details'
+    dependency: 'git-diff-details'
+    callback: 'git-diff-details:toggle-git-diff-details'
+    icon: 'newspaper-o'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Merge Conflicts'
+    dependency: 'merge-conflicts'
+    callback: 'merge-conflicts:detect'
+    icon: 'code-fork'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Git Time Machine'
+    dependency: 'git-time-machine'
+    callback: 'git-time-machine:toggle'
+    icon: 'clock-o'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Open on Github'
+    dependency: 'open-on-github'
+    callback: 'open-on-github:repository'
+    icon: 'github'
+    iconset: 'fa'
+  },
+  {
+    type: 'spacer'
+  },
+  {
+    type: 'button'
+    tooltip: 'Toggle Fullscreen'
+    callback: 'window:toggle-full-screen'
+    icon: 'arrow-expand-all'
+    iconset: 'mdi'
+  },
+  {
+    type: 'button'
+    tooltip: 'Split screen - Vertically'
+    callback: 'pane:split-right'
+    icon: 'format-horizontal-align-center'
+    iconset: 'mdi'
+  },
+  {
+    type: 'button'
+    tooltip: 'Split screen - Horizontally'
+    callback: 'pane:split-down'
+    icon: 'format-vertical-align-center'
+    iconset: 'mdi'
+  },
+  {
+    type: 'button'
+    tooltip: 'Focus Active Pane'
+    dependency: 'hey-pane'
+    callback: 'hey-pane:toggle-focus-of-active-pane'
+    icon: 'expand'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Split Diff'
+    dependency: 'split-diff'
+    callback: 'split-diff:toggle'
+    icon: 'clone'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Toggle Sidebar'
+    callback: 'tree-view:toggle'
+    icon: 'sitemap'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Toggle Minimap'
+    dependency: 'minimap'
+    callback: 'minimap:toggle'
+    icon: 'map'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Toggle Exposé'
+    dependency: 'expose'
+    callback: 'expose:toggle'
+    icon: 'search-plus'
+    iconset: 'fa'
+  },
+  {
+    type: 'spacer'
+  },
+  {
+    type: 'button'
+    tooltip: 'Beautify'
+    dependency: 'atom-beautify'
+    callback: 'atom-beautify:beautify-editor'
+    icon: 'magic'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Auto indent (selection)'
+    callback: 'editor:auto-indent'
+    icon: 'indent'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Fold All'
+    callback: 'editor:fold-all'
+    icon: 'angle-double-up'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Unfold All'
+    callback: 'editor:unfold-all'
+    icon: 'angle-double-down'
+    iconset: 'fa'
+  },
+  {
+    type: 'spacer'
+  },
+  {
+    type: 'button'
+    tooltip: 'Open Terminal'
+    callback: 'term3:open-split-down'
+    icon: 'terminal'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Run Script'
+    callback: 'script:run'
+    icon: 'play-circle'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Stop Script'
+    callback: 'script:kill-process'
+    icon: 'stop-circle'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Config Script'
+    callback: 'script:run-options'
+    icon: 'sliders'
+    iconset: 'fa'
+  },
+  {
+    type: 'spacer'
+  },
+  {
+    type: 'button'
+    tooltip: 'Reload Window'
+    callback: 'window:reload'
+    icon: 'refresh'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Toggle Developer Tools'
+    callback: 'window:toggle-dev-tools'
+    icon: 'bug'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Ask Stack'
+    dependency: 'ask-stack'
+    callback: 'ask-stack:ask-question'
+    icon: 'stack-overflow'
+    iconset: 'fa'
+  }
+  {
+    type: 'button'
+    tooltip: 'Open Command Palette'
+    callback: 'command-palette:toggle'
+    icon: 'bolt'
+    iconset: 'fa'
+  },
+  {
+    type: 'button'
+    tooltip: 'Open Settings View'
+    callback: 'settings-view:open'
+    icon: 'ios-cog'
+    iconset: 'ion'
+  },
+  {
+    type: "spacer"
+  },
+  {
+    type: "button"
+    callback: "atom-toolbar-preferred:edit-config-file"
+    tooltip: "Edit Tool Bar"
+    icon: "tools"
+  }
+]

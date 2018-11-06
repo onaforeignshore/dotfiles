@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+local hosts_file="/Users/chris/hosts.txt"
+local ip_file="/Users/chris/resolved.txt"
+local findip ip
+
+if [[ -f $ip_file ]]; then
+  rm $ip_file
+  touch $ip_file
+fi
+if [[ -f $hosts_file ]]; then
+  for host in $(<"$hosts_file"); do
+    print -P "%F{yellow}••• Resolving %F{cyan}$host%F{yellow}...%f"
+    findip=( $(dig +short "$host") )
+    print -P "%F{magenta}Found:%f $findip"
+    for ip in "${findip[@]}"; do
+      if [[ "$ip" =~ "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$" ]]; then
+        echo -n "Pinging $ip... "
+        ping -o -c 5 $ip > /dev/null
+        if [[ $? -eq 0 ]]; then
+          print -P "%F{green}Up%f"
+          echo "$host,$ip,up" >> $ip_file
+        else
+          print -P "%F{red}Down%f"
+          echo "$host,$ip,down" >> $ip_file
+        fi
+      fi
+    done
+  done
+else
+  echo "No hosts file!"
+  return 1
+fi
+
+# ^[a-z0-9\.-]*,[a-z0-9\.-]*\.$\n

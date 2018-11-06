@@ -1,0 +1,15 @@
+[
+  {
+    title: "Dotfiles Mac"
+    paths: [
+      "/Users/chris/Desktop/dotfiles-mac"
+      "/Users/chris/.dotfiles"
+    ]
+  }
+  {
+    title: "Powerlevel9k"
+    paths: [
+      "/Users/chris/code/powerlevel9k"
+    ]
+  }
+]

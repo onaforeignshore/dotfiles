@@ -1,0 +1,27 @@
+/*
+ I decided on the Brush Script MT cursive font for now. Works better for me than FlottFlott.
+*/
+.mtk5, .mtk6, .mtk19 {
+  margin-left: 1px;
+  font-family: "OperatorMono-BookItalic";
+  font-size: 110%;
+  font-weight: 500;
+  height: inherit;
+  letter-spacing: -.012em;
+  line-height: (100 / @font-size);
+}
+
+/*
+  For the tab titles.
+*/
+.monaco-icon-label-description-container .label-name {
+  font-family: "OperatorMono-BookItalic";
+  font-size: 1.3em;
+}
+
+.tabs-container .monaco-icon-label-description-container .label-name,
+.sidebar .monaco-icon-label-description-container .label-name,
+.quick-open-row .monaco-icon-label-description-container .label-name {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe WPC,Segoe UI,HelveticaNeue-Light,Ubuntu,Droid Sans,sans-serif;
+  font-size: 1em;
+}

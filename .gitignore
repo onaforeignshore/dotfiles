@@ -12,6 +12,8 @@ config/nvim/backup
 config/nvim/.viminfo
 config/nvim/.viminfo.tmp*
 
+config/.atom/packages
+
 tmux/tmux.conf.symlink
 tmux/.tmux
 tmux/resurrect

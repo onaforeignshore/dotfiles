@@ -142,6 +142,7 @@ formulas=(
     alfred
     android-file-transfer
     audio-hijack
+    bartender
     calibre
     cleanmymac
     cloudmounter
@@ -153,10 +154,9 @@ formulas=(
     eloquent
     evernote
     fontexplorer-x-pro
-    fontforge
-    gemini
+    google-backup-and-sync
     google-chrome
-    google-drive
+    google-drive-file-stream
     hazel
     imageoptim
     istat-menus
