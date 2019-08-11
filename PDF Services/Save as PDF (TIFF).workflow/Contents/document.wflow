@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>444.7</string>
+	<string>444.39</string>
 	<key>AMApplicationVersion</key>
-	<string>2.8</string>
+	<string>2.9</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -111,7 +111,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:108.000000</string>
+				<string>309.000000:107.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -283,9 +283,9 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:291.000000</string>
+				<string>309.000000:289.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -391,7 +391,7 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:397.000000</string>
+				<string>309.000000:394.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -501,7 +501,7 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:500.000000</string>
+				<string>309.000000:496.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -523,7 +523,7 @@ echo ${name}</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>589.4</string>
+				<string>589.10</string>
 				<key>AMApplication</key>
 				<array>
 					<string>PDF</string>
@@ -571,7 +571,7 @@ echo ${name}</string>
 				<key>BundleIdentifier</key>
 				<string>com.apple.action.imagepdf</string>
 				<key>CFBundleVersion</key>
-				<string>589.4</string>
+				<string>589.10</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<false/>
 				<key>CanShowWhenRun</key>
@@ -655,7 +655,7 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:701.000000</string>
+				<string>309.000000:696.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Render PDF Pages as Images.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -677,7 +677,7 @@ echo ${name}</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>9</string>
+				<string>1.1</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Preview</string>
@@ -693,6 +693,8 @@ echo ${name}</string>
 						<key>variableUUIDsInMenu</key>
 						<array/>
 					</dict>
+					<key>outputName</key>
+					<dict/>
 					<key>pageSizeMode</key>
 					<dict/>
 					<key>replaceExistingOutput</key>
@@ -704,7 +706,7 @@ echo ${name}</string>
 					<string>List</string>
 					<key>Types</key>
 					<array>
-						<string>com.apple.cocoa.path</string>
+						<string>com.adobe.pdf</string>
 					</array>
 				</dict>
 				<key>AMRequiredResources</key>
@@ -729,7 +731,7 @@ echo ${name}</string>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.NewPDFfromImages</string>
 				<key>CFBundleVersion</key>
-				<string>9</string>
+				<string>1.1</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<true/>
 				<key>CanShowWhenRun</key>
@@ -757,7 +759,7 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:906.000000</string>
+				<string>309.000000:900.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/New PDF from Images.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -879,7 +881,7 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:1061.000000</string>
+				<string>309.000000:1002.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Move Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -1355,7 +1357,7 @@ echo ${name}</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>301.500000:1273.000000</string>
+				<string>309.000000:1161.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Rename Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -1365,54 +1367,54 @@ echo ${name}</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>05D6F320-E352-4877-B7FF-CDCA7E682944</key>
-		<dict>
-			<key>from</key>
-			<string>EB55F359-48D8-4D94-97F7-EE4CD7C1E4DF - EB55F359-48D8-4D94-97F7-EE4CD7C1E4DF</string>
-			<key>to</key>
-			<string>C200A413-EC14-4E2B-866F-7BEFD0F13582 - C200A413-EC14-4E2B-866F-7BEFD0F13582</string>
-		</dict>
-		<key>192AE6DA-2B21-4064-9526-EEC9413021BC</key>
-		<dict>
-			<key>from</key>
-			<string>C200A413-EC14-4E2B-866F-7BEFD0F13582 - C200A413-EC14-4E2B-866F-7BEFD0F13582</string>
-			<key>to</key>
-			<string>CE6C9F04-7DD5-4092-A130-6A61B1BDDF9F - CE6C9F04-7DD5-4092-A130-6A61B1BDDF9F</string>
-		</dict>
-		<key>65565DC3-847C-4393-8CB8-AA7E1AEC3BC7</key>
+		<key>12D6DFF6-28F0-4F65-9FD0-55BB611098FC</key>
 		<dict>
 			<key>from</key>
 			<string>15796CBE-B4BF-4418-831C-946DA99DAD77 - 15796CBE-B4BF-4418-831C-946DA99DAD77</string>
 			<key>to</key>
 			<string>EB55F359-48D8-4D94-97F7-EE4CD7C1E4DF - EB55F359-48D8-4D94-97F7-EE4CD7C1E4DF</string>
 		</dict>
-		<key>6B4E8669-737E-4720-9945-7B0C2FBDD19A</key>
-		<dict>
-			<key>from</key>
-			<string>656A51E3-0EEC-43AA-978F-1ED90D9BB883 - 656A51E3-0EEC-43AA-978F-1ED90D9BB883</string>
-			<key>to</key>
-			<string>093B06EE-940C-4645-B6D0-06F3FCA40579 - 093B06EE-940C-4645-B6D0-06F3FCA40579</string>
-		</dict>
-		<key>72C8509C-8DD8-4D4C-AFFE-7FF54E947A7E</key>
+		<key>2064316F-ED84-4151-8328-321793DA8FD3</key>
 		<dict>
 			<key>from</key>
 			<string>093B06EE-940C-4645-B6D0-06F3FCA40579 - 093B06EE-940C-4645-B6D0-06F3FCA40579</string>
 			<key>to</key>
 			<string>7237DC92-0EEF-4C9F-B363-42931CFE8711 - 7237DC92-0EEF-4C9F-B363-42931CFE8711</string>
 		</dict>
-		<key>B351265C-71B5-4035-9EF7-0296D995A570</key>
+		<key>64EFECDC-4915-41AE-8B08-03A3A5A6F203</key>
+		<dict>
+			<key>from</key>
+			<string>C200A413-EC14-4E2B-866F-7BEFD0F13582 - C200A413-EC14-4E2B-866F-7BEFD0F13582</string>
+			<key>to</key>
+			<string>CE6C9F04-7DD5-4092-A130-6A61B1BDDF9F - CE6C9F04-7DD5-4092-A130-6A61B1BDDF9F</string>
+		</dict>
+		<key>6AA1D13E-7159-4CEF-B2A0-B06E87B2D449</key>
 		<dict>
 			<key>from</key>
 			<string>CE6C9F04-7DD5-4092-A130-6A61B1BDDF9F - CE6C9F04-7DD5-4092-A130-6A61B1BDDF9F</string>
 			<key>to</key>
 			<string>656A51E3-0EEC-43AA-978F-1ED90D9BB883 - 656A51E3-0EEC-43AA-978F-1ED90D9BB883</string>
 		</dict>
-		<key>FD0EA0DC-0914-422F-9831-064BD61ECD9D</key>
+		<key>916865D2-56ED-444F-A375-DA20FB3895E2</key>
+		<dict>
+			<key>from</key>
+			<string>EB55F359-48D8-4D94-97F7-EE4CD7C1E4DF - EB55F359-48D8-4D94-97F7-EE4CD7C1E4DF</string>
+			<key>to</key>
+			<string>C200A413-EC14-4E2B-866F-7BEFD0F13582 - C200A413-EC14-4E2B-866F-7BEFD0F13582</string>
+		</dict>
+		<key>C560B653-0064-441F-AA53-ECF6DD956C22</key>
 		<dict>
 			<key>from</key>
 			<string>16EACE08-EAE1-48BA-A631-3B9A8835400E - 16EACE08-EAE1-48BA-A631-3B9A8835400E</string>
 			<key>to</key>
 			<string>15796CBE-B4BF-4418-831C-946DA99DAD77 - 15796CBE-B4BF-4418-831C-946DA99DAD77</string>
+		</dict>
+		<key>F18F5946-018F-4974-81F2-9C2B0160953F</key>
+		<dict>
+			<key>from</key>
+			<string>656A51E3-0EEC-43AA-978F-1ED90D9BB883 - 656A51E3-0EEC-43AA-978F-1ED90D9BB883</string>
+			<key>to</key>
+			<string>093B06EE-940C-4645-B6D0-06F3FCA40579 - 093B06EE-940C-4645-B6D0-06F3FCA40579</string>
 		</dict>
 	</dict>
 	<key>variables</key>

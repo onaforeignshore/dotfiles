@@ -26,6 +26,9 @@ export LC_ALL="en_US.UTF-8"
 
 [[ -e ~/.terminfo ]] && export TERMINFO_DIRS=~/.terminfo:/usr/share/terminfo # use modified terminfo before default ones
 
+# Enable truecolor support for ZSH >= 5.7
+[[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
+
 # define the code directory
 # This is where my code exists and where I want the `c` autocomplete to work from exclusively
 if [[ -d ~/code ]]; then

@@ -10,9 +10,8 @@
         "p9k"
       ]
     disabledPackages: [
-      "language-gfm"
       "wrap-guide"
-      "language-shellscript"
+      "language-gfm"
     ]
     ignoredNames: [
       ".git"
@@ -83,6 +82,9 @@
     useCustomRulerColor: true
   "one-dark-ui":
     fontSize: 12
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   "platformio-ide-terminal":
     style:
       fontFamily: "SourceCodePro Nerd Font"
