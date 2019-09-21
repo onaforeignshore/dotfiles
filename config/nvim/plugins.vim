@@ -50,7 +50,7 @@ Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'vim-scripts/matchit.zip' " extended % matching
 
 " code completion
-Plug 'Valloric/YouCompleteMe' " code-completion engine
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } " code-completion engine
 
 " html / templates
 Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] } " pug / jade support
@@ -95,4 +95,3 @@ Plug 'timcharper/textile.vim', { 'for': 'textile' } " textile support
 Plug 'tmux-plugins/vim-tmux'
 
 call plug#end()
-

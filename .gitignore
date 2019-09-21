@@ -13,6 +13,7 @@ config/nvim/.viminfo
 config/nvim/.viminfo.tmp*
 
 config/.atom/packages
+config/.atom/.atom-socket*
 
 tmux/tmux.conf.symlink
 tmux/.tmux

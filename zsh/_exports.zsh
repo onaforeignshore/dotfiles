@@ -2,15 +2,8 @@
 # Path set up
 ####################
 
-export PATH=/usr/local/bin:$PATH
-
-# add /usr/local/sbin
-if [[ -d /usr/local/sbin ]]; then
-    export PATH=/usr/local/sbin:$PATH
-fi
-
 # adding path directory for custom scripts
-export PATH=$DOTFILES/bin:$PATH
+PATH=$DOTFILES/bin:$PATH
 
 # check for custom bin directory and add to path
 if [[ -d ~/bin ]]; then
@@ -33,17 +26,55 @@ if [[ -d ~/.rvm ]]; then
 fi
 
 # homebrew configuration
-export PATH=$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homebrew/Library/Homebrew/shims/scm
+export PATH="$PATH:/usr/local/Homebrew/Library/Homebrew/cask/cmd:/usr/local/Homebrew/Library/Homebrew/shims/scm"
 
 # coreutils override (with gnu version)
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
+# build tools override
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/bison/lib"
+
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/gettext/lib"
+export CPPFLAGS="-I/usr/local/opt/gettext/include"
+
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/libxml2/lib"
+export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/libxml2/include"
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+
+export PATH="/usr/local/opt/libxslt/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/libxslt/lib"
+export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/libxslt/include"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/libxslt/lib/pkgconfig"
+
+export PATH="/usr/local/opt/flex/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/flex/lib"
+export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/flex/include"
+
+alias gcc='gcc-9'
+alias cc='gcc-9'
+alias g++='g++-9'
+alias c++='c++-9'
+
 # Add brew python to path
 export PATH=/usr/local/opt/python/libexec/bin:/usr/local/opt/python@2/libexec/bin:$PATH
 
+# Add ruby to the path
+export PATH="$(gem env gemdir)/bin:$PATH" # default path
+export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH" # user installed path
+
 # Add composer to the path (https://getcomposer.org/doc/00-intro.md)
 export PATH=$PATH:$HOME/.composer/vendor/bin
+
+export PATH=$PATH:/usr/local/bin
+
+# add /usr/local/sbin
+if [[ -d /usr/local/sbin ]]; then
+    export PATH=/usr/local/sbin:$PATH
+fi
 
 export XDG_CACHE_HOME="$HOME/.config"
 

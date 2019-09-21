@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Start task-web only if it is not running
+
+if [ "$(ps -ef | grep -v grep | grep /bin/task-web | wc -l)" -le 0 ]; then
+  # start task-web
+  /usr/local/lib/ruby/gems/2.6.0/bin/task-web
+  echo "TaskWarrior Web started"
+else
+  echo "TaskWarrior Web already running"
+fi
