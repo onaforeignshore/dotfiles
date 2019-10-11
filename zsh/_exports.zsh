@@ -69,7 +69,7 @@ export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH" # user instal
 # Add composer to the path (https://getcomposer.org/doc/00-intro.md)
 export PATH=$PATH:$HOME/.composer/vendor/bin
 
-export PATH=$PATH:/usr/local/bin
+export PATH=/usr/local/bin:$PATH
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then

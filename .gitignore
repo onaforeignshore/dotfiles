@@ -15,5 +15,5 @@ config/nvim/.viminfo.tmp*
 config/.atom/packages
 config/.atom/.atom-socket*
 
-tmux/.tmux/*
+tmux/.tmux
 tmux/resurrect
