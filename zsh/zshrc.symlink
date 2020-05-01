@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Uncomment the line below to do profiling
 # zmodload zsh/zprof
 
@@ -22,7 +29,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Set up terminal and turn on colors
-[ -z "$TMUX" ] && export TERM="xterm-256color" || export TERM="tmux-256color"
+[ -z "$TMUX" ]&& export TERM="xterm-256color" || export TERM="tmux-256color"
 
 [[ -e ~/.terminfo ]] && export TERMINFO_DIRS=~/.terminfo:/usr/share/terminfo # use modified terminfo before default ones
 
@@ -72,5 +79,11 @@ bindkey '^[[1;9A'      cdParentKey
 bindkey '^[[1;3D'      cdUndoKey
 
 compinit -u
+
+# add codee to hash table to display '~code' instead of full directory
+hash -d code=/Users/chris/OneDrive/DropBox/code
+
+# source powerlevel10k config and theme
+source ~/.config/zsh/.p10k.zsh
 
 # This lines stops zplugin from adding its loading to this file as it is handled in zplugin.zsh

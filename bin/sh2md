@@ -1,1 +1,548 @@
-/Users/chris/code/sh2md/sh2md
+#!/usr/bin/env awk -f
+
+######################################################################
+# @title sh2md - Shell script comment to Markdown converter
+#
+# @info
+#
+# sh2md is based on [shdoc](https://github.com/reconquest/shdoc),
+# but has been rewritten from scratch with many improvements.
+##
+# @author [onaforeignshore](https://github.com/onaforeignshore)
+#
+# @dependencies gawk
+#
+# @source https://github.com/onaforeignshore/sh2md
+##
+
+BEGIN {
+	IGNORECASE = 1
+
+	# sections
+	hasFileInfo = 0
+	hasTOC = 0
+	hasDocInfo = 0
+
+	# docInfo block
+	hasTitle = 0
+	hasVersion = 0
+	hasAuthor = 0
+	hasDependency = 0
+	hasSource = 0
+	hasInfo = 0
+
+	# styles
+	if (! style) {
+		style = "github"
+	}
+
+	styles["github", "title", "from"] = ".*"
+	styles["github", "title", "to"] = "# &"
+
+	styles["github", "h1", "from"] = ".*"
+	styles["github", "h1", "to"] = "## &"
+
+	styles["github", "h2", "from"] = ".*"
+	styles["github", "h2", "to"] = "### &"
+
+	styles["github", "h3", "from"] = ".*"
+	styles["github", "h3", "to"] = "#### &"
+
+	styles["github", "code", "from"] = ".*"
+	styles["github", "code", "to"] = "```&"
+	styles["github", "/code", "to"] = "```"
+
+	styles["github", "argN", "from"] = "^(\\$[0-9]+) (\\S+)"
+	styles["github", "argN", "to"] = "**\\1** (\\2)"
+
+	styles["github", "arg@", "from"] = "^\\$@ (\\S+)"
+	styles["github", "arg@", "to"] = "**...** (\\1)"
+
+	styles["github", "li", "from"] = "^.*"
+	styles["github", "li", "to"] = "- &"
+
+	styles["github", "i", "from"] = ".*"
+	styles["github", "i", "to"] = "*&*"
+
+	styles["github", "b", "from"] = ".*"
+	styles["github", "b", "to"] = "**&**"
+
+	styles["github", "anchor", "from"] = ".*"
+	styles["github", "anchor", "to"] = "[&](#&)"
+
+	styles["github", "exitcode", "from"] = "([0-9>]*) (.*)"
+	styles["github", "exitcode", "to"] = "**\\1** \\2"
+
+	# user defined styles
+	styles["github", "info", "from"] = ".*"
+	styles["github", "info", "to"] = "*&*" # add your info block style here
+
+	styles["github", "description", "from"] = ".*"
+	styles["github", "description", "to"] = "*&*" # add your description block style here
+
+	styles["github", "note", "from"] = ".*"
+	styles["github", "note", "to"] = "*&*" # add your note block style here
+}
+
+function render(type, text) {
+	return gensub( \
+		styles[style, type, "from"],
+		styles[style, type, "to"],
+		"g",
+		text \
+	)
+}
+
+function mdescape(text) {
+	# Remove Escape characters
+	gsub(/\$_/, "$\\_", text)
+	gsub(/ _/, " \\_", text)
+	gsub(/(.+)\*/, "\1\\*", text)
+	return text
+}
+
+function removeBlanks(text) {
+	n = split(text, ar, "\n")
+	str = ""
+	for (i in ar) {
+		if (ar[i] != "") {
+		  str = str ar[i] "\n"
+		  #if (i < n - 1 ) { str = str "\n" }
+		}
+	}
+	return str
+}
+
+function makeParagraphs(text) {
+	n = split(text, ar, "\n")
+	str = ""
+	for (i in ar) {
+		if (i == 0 && ar[i] == "") {
+			# skip first blank line
+			continue
+		}
+		if (ar[i] == "") {
+			# current line is empty - check next line
+			if (ar[i+1] != "") {
+				# next line is not empty - join
+				str = str ar[i+1] " "
+			} else {
+				# next line is also empty - strip extra newlines
+				continue
+			}
+		} else {
+			# current line is not empty - check next line for newline
+			if (ar[i+1] != "") {
+				# next line is not empty - join
+				str = str ar[i+1] " "
+			} else {
+				# next line is empty - make paragraph
+				if (i+1 != n) {
+					# don't add newlines at end
+					str = str "\n\n"
+				}
+			}
+		}
+	}
+	return str
+}
+
+function addStyle(text, style1, style2, style3) {
+	split(text, ar, "\n")
+	str = ""
+	for (i in ar) {
+		if (ar[i] != "") {
+		str = str render(style1, render(style2, render(style3, ar[i]))) "\n"
+		} else {
+			str = str "\n"
+		}
+	}
+	return str
+}
+
+inFileBlock {
+	hasFileInfo = 1
+	blockDone = 0
+	if ( /^[^#]|^# @|^##+/ ) {
+		blockDone = 1
+	}
+	switch (inFileBlock) {
+		case "title":
+			if (blockDone) {
+				inFileBlock = 0
+				if (!hasTitle) {
+					hasTitle = 1
+				}
+				fileBlock = fileBlock addStyle(removeBlanks(titleBlock), "title")
+				titleBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				titleBlock = titleBlock $0 "\n"
+			}
+		break
+		case "version":
+			if (blockDone) {
+				inFileBlock = 0
+				if (!hasVersion) {
+					hasVersion = 1
+					fileBlock = fileBlock "\n" render("h2", "Version") "\n\n"
+				}
+				fileBlock = fileBlock addStyle(removeBlanks(versionBlock), "li")
+				versionBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				versionBlock = versionBlock $0 "\n"
+			}
+		break
+		case "author":
+			if (blockDone) {
+				inFileBlock = 0
+				if (!hasAuthor) {
+					hasAuthor = 1
+					fileBlock = fileBlock "\n" render("h2", "Author(s)") "\n\n"
+				}
+				fileBlock = fileBlock addStyle(removeBlanks(authorBlock), "li")
+				authorBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				authorBlock = authorBlock $0 "\n"
+			}
+		break
+		case "dependency":
+			if (blockDone) {
+				inFileBlock = 0
+				if (!hasDependency) {
+					hasDependency = 1
+					fileBlock = fileBlock "\n" render("h2", "Dependencies") "\n\n"
+				}
+				fileBlock = fileBlock addStyle(removeBlanks(dependencyBlock), "li")
+				dependencyBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				dependencyBlock = dependencyBlock $0 "\n"
+			}
+		break
+		case "source":
+			if (blockDone) {
+				inFileBlock = 0
+				if (!hasSource) {
+					hasSource = 1
+					fileBlock = fileBlock "\n" render("h2", "Source(s)") "\n\n"
+				}
+				fileBlock = fileBlock removeBlanks(sourceBlock) # addStyle(removeBlanks(sourceBlock), "anchor")
+				sourceBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				sourceBlock = sourceBlock $0 "\n"
+			}
+		break
+		case "info":
+			if (blockDone) {
+				inFileBlock = 0
+				if (!hasInfo) {
+					hasInfo = 1
+					fileBlock = fileBlock "\n" render("h2", "File Description") "\n\n"
+				}
+				fileBlock = fileBlock addStyle(makeParagraphs(infoBlock), "info")
+				sourceBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				infoBlock = infoBlock $0 "\n"
+			}
+		break
+	}
+}
+
+/^# @title/ {
+	inFileBlock = "title"
+	sub(/^# @title[ ]*/, "")
+	titleBlock = titleBlock mdescape($0) "\n"
+}
+
+/^# @version/ {
+	inFileBlock = "version"
+	sub(/^# @version[ ]*/, "")
+	versionBlock = versionBlock mdescape($0) "\n"
+}
+
+/^# @authors?/ {
+	inFileBlock = "author"
+	sub(/^# @authors?[ ]*/, "")
+	authorBlock = authorBlock mdescape($0) "\n"
+}
+
+/^# @dependenc(y|ies)?/ {
+	inFileBlock = "dependency"
+	sub(/^# @dependenc(y|ies)?[ ]*/, "")
+	dependencyBlock = dependencyBlock mdescape($0) "\n"
+}
+
+/^# @sources?/ {
+	inFileBlock = "source"
+	sub(/^# @sources?[ ]*/, "")
+	sourceBlock = sourceBlock mdescape($0) "\n"
+}
+
+/^# @info/ {
+	inFileBlock = "info"
+	sub(/^# @info/, "")
+	infoBlock = infoBlock mdescape($0) "\n"
+}
+
+inFuncBlock {
+	hasDocInfo = 1
+	blockDone = 0
+	if ( /^[^#]|^# @|^##+/ ) {
+		blockDone = 1
+	}
+	switch (inFuncBlock) {
+		case "description":
+			if (blockDone) {
+				inFuncBlock = 0
+				funcBlock = funcBlock addStyle(makeParagraphs(descBlock), "description")
+				descBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				descBlock = descBlock $0 "\n"
+			}
+		break
+		case "example":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasExample) {
+					hasExample = 1
+					funcBlock = funcBlock "\n" render("h3", "Example") "\n\n"
+				}
+				funcBlock = funcBlock render("code", "sh") "\n" removeBlanks(exampleBlock) "\n" render("/code") "\n"
+				exampleBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				exampleBlock = exampleBlock $0 "\n"
+			}
+		break
+		case "arg":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasArg) {
+					hasArg = 1
+					funcBlock = funcBlock "\n" render("h3", "Arguments") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(removeBlanks(argBlock), "li", "argN", "arg@")
+				argBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				argBlock = argBlock $0 "\n"
+			}
+		break
+		case "var":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasVar) {
+					hasVar = 1
+					funcBlock = funcBlock "\n" render("h3", "Variables") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(removeBlanks(varBlock), "li", "argN", "arg@")
+				varBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				varBlock = varBlock $0 "\n"
+			}
+		break
+		case "return":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasReturn) {
+					hasReturn = 1
+					funcBlock = funcBlock "\n" render("h3", "Returns") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(removeBlanks(retBlock), "li")
+				retBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				retBlock = retBlock $0 "\n"
+			}
+		break
+		case "exitcode":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasExitCode) {
+					hasExitCode = 1
+					funcBlock = funcBlock "\n" render("h3", "Exit codes") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(removeBlanks(exitBlock), "li", "exitcode")
+				exitBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				exitBlock = exitBlock $0 "\n"
+			}
+		break
+		case "see":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasSee) {
+					hasSee = 1
+					funcBlock = funcBlock "\n" render("h3", "See also") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(removeBlanks(seeBlock), "li", "anchor")
+				seeBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				seeBlock = seeBlock $0 "\n"
+			}
+		break
+		case "note":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasNote) {
+					hasNote = 1
+					funcBlock = funcBlock "\n" render("h3", "Notes") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(makeParagraphs(noteBlock), "note")
+				noteBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				noteBlock = noteBlock $0 "\n"
+			}
+		break
+		case "usage":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasUsage) {
+					hasUsage = 1
+					funcBlock = funcBlock "\n" render("h3", "Usage") "\n\n"
+				}
+				funcBlock = funcBlock render("code", "sh") "\n" removeBlanks(usageBlock) "\n" render("/code") "\n"
+				usageBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				usageBlock = usageBlock $0 "\n"
+			}
+		break
+		case "stdout":
+			if (blockDone) {
+				inFuncBlock = 0
+				if (!hasStdOut) {
+					hasStdOut = 1
+					funcBlock = funcBlock "\n" render("h3", "Output on stdout") "\n\n"
+				}
+				funcBlock = funcBlock addStyle(removeBlanks(stdOutBlock), "li")
+				stdOutBlock = ""
+			} else {
+				sub(/^#[ ]*/, "")
+				if ($0 == "") { break }
+				stdOutBlock = stdOutBlock $0 "\n"
+			}
+		break
+	}
+}
+
+/^# @description/ {
+	inFuncBlock = "description"
+	sub(/^# @description[ ]*/, "")
+	descBlock = descBlock mdescape($0) "\n"
+}
+
+/^# @examples?/ {
+	inFuncBlock = "example"
+	sub(/^# @examples?[ ]*/, "")
+	exampleBlock = exampleBlock mdescape($0) "\n"
+}
+
+/^# @(args?|params?)/ {
+	inFuncBlock = "arg"
+	sub(/^# @(args?|params?)[ ]*/, "")
+	argBlock = argBlock mdescape($0) "\n"
+}
+
+/^# @noargs?/ {
+	inFuncBlock = "arg"
+	argBlock = argBlock render("i", "Function has no arguments.") "\n"
+}
+
+/^# @vars?/ {
+	inFuncBlock = "var"
+	sub(/^# @vars?[ ]*/, "")
+	varBlock = varBlock mdescape($0) "\n"
+}
+
+/^# @returns?/ {
+	inFuncBlock = "return"
+	sub(/^# @returns?[ ]*/, "")
+	retBlock = retBlock mdescape($0) "\n"
+}
+
+/^# @exitcodes?/ {
+	inFuncBlock = "exitcode"
+	sub(/^# @exitcodes?[ ]*/, "")
+	exitBlock = exitBlock mdescape($0) "\n"
+}
+
+/^# @see/ {
+	inFuncBlock = "see"
+	sub(/# @see[ ]*/, "")
+	seeBlock = seeBlock mdescape($0) "\n"
+}
+
+/^# @notes?/ {
+	inFuncBlock = "note"
+	sub(/^# @notes?[ ]*/, "")
+	noteBlock = noteBlock mdescape($0) "\n"
+}
+
+/^# @usage/ {
+	inFuncBlock = "usage"
+	sub(/^# @usage[ ]*/, "")
+	usageBlock = usageBlock mdescape($0) "\n"
+}
+
+/^# @stdout/ {
+	inFuncBlock = "stdout"
+	sub(/^# @stdout[ ]*/, "")
+	stdOutBlock = stdOutBlock mdescape($0) "\n"
+}
+
+/^(# @)?(function )?([a-zA-Z0-9_:-]+)( )?(\(\))? \{/ && funcBlock != "" {
+	if (!hasTOC) {
+		hasTOC = 1
+		toc = render("h1", "Table of Contents") "\n"
+	}
+	inFuncBlock = 0
+	hasDescription = 0
+	hasExample = 0
+	hasArg = 0
+	hasVar = 0
+	hasReturn = 0
+	hasExitCode = 0
+	hasSee = 0
+	hasNote = 0
+	hasUsage = 0
+	hasStdOut = 0
+
+	sub(/^# @/, "")
+	sub(/^function /, "")
+	sub(/\(\)/, "")
+	doc = doc "\n" render("h1", $1) "\n" funcBlock
+	funcBlock = ""
+	url = $1
+	gsub(/\W/, "", url)
+	toc = toc "\n" render("li", "[" $1 "](#" url ")")
+}
+
+END {
+	if (hasFileInfo) { print fileBlock }
+	if (hasTOC) { print toc }
+	if (hasDocInfo) { print doc }
+}

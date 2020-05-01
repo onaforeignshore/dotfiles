@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
-# Start task-web only if it is not running
-
-if [ "$(ps -ef | grep -v grep | grep /bin/task-web | wc -l)" -le 0 ]; then
+# Start task-web only if it is not runnin
+#if [ $(ps -ef | grep /bin/task-web | wc -l) -gt 1 ]; then
+#  echo "TaskWarrior Web already running"
+#else
   # start task-web
   /usr/local/lib/ruby/gems/2.6.0/bin/task-web
-  echo "TaskWarrior Web started"
-else
-  echo "TaskWarrior Web already running"
-fi
+#  echo "TaskWarrior Web started"
+#fi

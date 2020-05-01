@@ -32,8 +32,7 @@
   "custom-title":
     template: "<%= projectName %> <% if (relativeFilePath) { %>- <%= relativeFilePath %> <% } %> - <%= gitHead %>"
   editor:
-    fontFamily: "FiraCodeNerdFontCompleteM-Retina"
-    fontSize: 13
+    fontFamily: "\"Fira Code Retina Nerd Font Complete Mono\", FiraCodeNerdFontCompleteM-Retina"
     invisibles: {}
     lineHeight: 1.25
     softWrapAtPreferredLineLength: true
@@ -89,9 +88,11 @@
     style:
       fontFamily: "SourceCodePro Nerd Font"
       fontSize: "9"
+  "seti-icons": {}
   "seti-syntax": {}
   "seti-ui":
     compactView: true
+    hideProjectTab: true
   "show-invisibles-plus":
     show: false
   "tool-bar": {}

@@ -21,8 +21,8 @@ atom-text-editor {
   // background-color: hsl(180, 24%, 12%);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  //font-family: "SourceCodePro Nerd Font";
-  font-family: FiraCode-Retina;
+  // font-family: "SourceCodePro Nerd Font";
+  font-family: "Fira Code Retina Nerd Font Complete Mono", FiraCodeNerdFontCompleteM-Retina;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
@@ -32,7 +32,7 @@ atom-text-editor.editor {
   .syntax--keyword.syntax--operator:not(.accessor):not(.syntax--new),
   .syntax--punctuation.syntax--definition:not(.syntax--tag):not(.syntax--bracket):not(.syntax--brace),
   .syntax--storage.syntax--type.syntax--function.syntax--arrow {
-    font-family: FiraCode-Retina;
+    font-family: FiraCodeNerdFontCompleteM-Retina;
     letter-spacing: 0;
     font-size: 1em;
     line-height: (100 / @font-size);
@@ -69,13 +69,13 @@ atom-text-editor.editor {
   .syntax--variable.syntax--language.syntax--this,
   .variable.parameter {
     font-family: OperatorMono-BookItalic;
-    //font-style: italic;
+    // font-style: italic;
     font-size: 110%;
     font-weight: 500;
     height: inherit;
     letter-spacing: -.012em;
     line-height: (100 / @font-size);
-    //vertical-align: baseline;
+    // vertical-align: baseline;
   }
 
   // ToDoTxt - your color for raw code
@@ -154,3 +154,28 @@ atom-text-editor .highlights {
     background-color: rgba(29, 91, 145, 0.2);
   }
 }
+
+// hide tree-view "Project" tab
+atom-dock.left atom-pane:only-child .tab-bar .tab:only-child {
+  display: none;
+}
+
+// adjust the tree view
+.tree-view {
+
+}
+
+// create a translucent block cursor
+atom-text-editor.editor .cursor {
+  // border-left: 8px solid rgba(255, 255, 255, .5) !important;
+}
+
+.project-root:nth-child(even) {
+  background: #001;
+}
+
+.project-root:nth-child(odd) {
+  background: #111;
+}
+
+atom-text-editor .fold-marker::after { content: "\1F981"; }

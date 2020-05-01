@@ -1,6 +1,7 @@
 #!/bin/sh
 tmux has-session -t dev 2> /dev/null
 if [ $? != 0 ]; then
+	#TMUX_CONF=/Users/chris/.dotfiles/tmux/.tmux/.tmux.conf TMUX_CONF_LOCAL=/Users/chris/.dotfiles/tmux/.tmux.conf.local tmux -f /Users/chris/.dotfiles/tmux/.tmux/.tmux.conf
 	tmux new-session -s dev -n ide -d
 	tmux split-window -t dev -v -p 30
 	tmux select-pane -t 1 -T "Work"
@@ -11,5 +12,6 @@ if [ $? != 0 ]; then
 	tmux select-pane -t 1 -T "Shell"
 	tmux select-window -t dev:1
 	tmux select-pane -t 1
+	tmux set -g mouse on
 fi
 tmux attach-session -t dev
